@@ -13,19 +13,19 @@ let num1 = 10.8
 let num2 = 8
 let resultado = num1 * num2
 
-console.log(mivariable + " " + miotravariable)
-console.log(resultado) 
+// console.log(mivariable + " " + miotravariable)
+// console.log(resultado) 
 
 
 // aquí recojo un elemento html dentro de una constante
 // const elementoHtmlBoton = document.getElementById("botonID")
 const elementoHtmlBoton = document.querySelector("#botonID")
 // a través de esa constante (colección html) le cambio/agrego propiedades
-console.log(elementoHtmlBoton)
+// console.log(elementoHtmlBoton)
 
 // recojo todos los elementos de clase boton, ya como nodos
 const elementosHtmlBoton = document.querySelectorAll(".boton")
-console.log(elementosHtmlBoton)
+// console.log(elementosHtmlBoton)
 
 
 // // Evento de escucha sobre un elemento recogido en una constante (evento tipo click)
@@ -76,7 +76,7 @@ botones.forEach((boton)=>{
             boton.style.backgroundColor="#410a6e"
             boton.style.border="2px dashed #410a6e"
             boton.style.color="white"
-            console.log(mivariable)
+            // console.log(mivariable)
         })
 
         // Una vez he reseteado todos los botones, cambio de color el target sobre el que se ha hecho click.
@@ -99,6 +99,8 @@ const botonesDesplegar = document.querySelectorAll(".botonDesplegar")
 
 // recorro con forEach y funciones flecha
 botonesDesplegar.forEach((item)=>{
+
+    console.log("entro")
     
     item.addEventListener("click", ()=>{
 
@@ -111,7 +113,28 @@ botonesDesplegar.forEach((item)=>{
         miParrafo.classList.toggle("open")
 
         
+        // contains me devuelve true o false si el párrafo contiene esa clase o no de "open"
+        // Necesitaremos saber de alguna forma si es true o false para cambiar el texto del botón.
+        console.log(miParrafo.classList.contains("open"))
+
+
+
+        // Opción 1: Condicional if/else
+        if(miParrafo.classList.contains("open")===true){
+            item.textContent="Leer menos"
+        }else{
+            item.textContent="Leer más"
+        }
+
+        // Opción 2: Operador ternario 
+        miParrafo.classList.contains("open") ? item.textContent ="Leer menos" : item.textContent ="Leer más"
+
+        // Opción 2: Operador ternario más optimizado
+        const h = miParrafo.classList.contains("open")
+        item.textContent = h ? "Leer menos" : "Leer más"
+       
     })
+    
 })
 
 
