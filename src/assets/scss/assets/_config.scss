@@ -17,6 +17,7 @@
   
 }
 
+
 // ejemplo de cómo son las variables en css normal(aquí ya no lo usamos)
 :root{
   --color: black;
@@ -26,8 +27,9 @@
 $fuenteText: 'Montserrat';
 $fuenteHeaders: 'Spartan';
 $color00:white;
-$color01: rgb(39, 39, 39);
-$color01-bis: rgba(0, 0, 0, 0.042);
+$color00-bis:#eaeaea;
+$color01: #272727;
+$color01-bis: #0000000b;
 $color02: #1aeca4;
 $color03: #008cd5;
 $color03svg:invert(48%) sepia(76%) saturate(3627%) hue-rotate(174deg) brightness(89%) contrast(102%);
@@ -39,6 +41,7 @@ $desktop: 1100px;
 
 header, nav, main, footer, section{
   width: 100%;
+  max-width: 2560px;
 }
 
 section{
@@ -56,10 +59,18 @@ section{
 
 h1, h2, h3, h4{
   font-family: $fuenteHeaders;
+
 }
 
 h3{
   color: $color03;
+  color: $color01;
+}
+
+p, a, span{
+  font-family: $fuenteHeaders;
+  font-size: clamp(1rem, 3vw, 1.1rem);
+  line-height: clamp(1.2rem, 3vw, 1.3rem);
 }
 
 .boton{
