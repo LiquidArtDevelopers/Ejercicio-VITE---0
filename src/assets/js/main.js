@@ -5,14 +5,15 @@ import './assets/_artJs.js'
 
 // Aquí importo la función que en el otro archivo exporto a través de un alias
 // Para poder ejecutar el código aquí importado, necesitaré ejecutar o kllamar a su función. (que es la función que en el otro fichero exporto)
-import { artAscordeon01 } from './assets/_artAscordeon01.js'
+import { artAcordeon01 } from './assets/_artAcordeon01.js'
 
  //así llamo a la función que me viene del import, y lo hacemos cuando el dom se ha cargado. esto es un listener que espera a que el dom (html) se cargue.
 
 
 document.addEventListener("DOMContentLoaded", ()=>{    
-    artAscordeon01()
+    artAcordeon01()
 })
+
 
 
 

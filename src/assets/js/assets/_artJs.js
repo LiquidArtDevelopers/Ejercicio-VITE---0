@@ -99,8 +99,6 @@ const botonesDesplegar = document.querySelectorAll(".botonDesplegar")
 
 // recorro con forEach y funciones flecha
 botonesDesplegar.forEach((item)=>{
-
-    console.log("entro")
     
     item.addEventListener("click", ()=>{
 
