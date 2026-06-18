@@ -60,3 +60,5 @@ carruseles.forEach((carrusel) => {
     }
   }, tiempoEspera)
 })
+
+

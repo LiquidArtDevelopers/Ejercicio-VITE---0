@@ -1,58 +1,58 @@
-@use 'config' as c;
+@use "config" as c;
 
-.artSlider01{
+.artSlider01 {
+  width: 100%;
+  padding: 0 1.5rem;
+  background-color: c.$color01-bis;
+
+  @media only screen and (min-width: c.$tablet) {
+    width: 80%;
+    padding: initial;
+  }
+
+  > :nth-child(1) {
     width: 100%;
-    padding: 0 1.5rem;
-    background-color: c.$color01-bis;
+    overflow: hidden;
+    border-radius: 20px;
+  }
 
-    @media only screen and (min-width:c.$tablet){
-        width: 80%;
-        padding: initial;
+  > :nth-child(1) > :nth-child(1) {
+    display: flex;
+  }
+
+  .artSlider01__slide {
+    width: 100%;
+    height: 55dvh;
+    flex: 0 0 100%;
+    overflow: hidden;
+    position: relative;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    &::after {
+      content: "";
+      position: absolute;
+      inset: 0;
+      background-color: rgba(c.$color04, 0.45);
     }
 
-    >:nth-child(1){
-        width: 100%;
-        overflow: hidden;
-        border-radius: 20px;
+    h3 {
+      position: absolute;
+      z-index: 100;
+      color: c.$color00;
+      font-size: clamp(2rem, 5vw, 5rem);
+      text-align: center;
+      text-shadow: 0px 0px 5px c.$color01;
     }
 
-    >:nth-child(1)>:nth-child(1){
-        display: flex;
+    img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      object-position: center;
+      transition: 1s;
     }
-
-    .artSlider01__slide{
-        width: 100%;
-        height: 55dvh;
-        flex: 0 0 100%;
-        overflow: hidden;
-        position: relative;
-
-        display: flex;
-        align-items: center;
-        justify-content: center;
-
-        &::after{
-            content: '';
-            position: absolute;
-            inset: 0;
-            background-color: rgba(c.$color04, .45);
-        }
-
-        h3{
-            position: absolute;
-            z-index: 100;
-            color: c.$color00;
-            font-size: clamp(2rem, 5vw, 5rem);
-            text-align: center;
-            text-shadow: 0px 0px 5px c.$color01;
-        }
-
-        img{
-            width: 100%;
-            height: 100%;
-            object-fit: cover;
-            object-position: center;
-            transition: 1s;
-        }
-    }
+  }
 }
