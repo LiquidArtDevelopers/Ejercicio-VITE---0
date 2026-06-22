@@ -14,10 +14,8 @@ export default function artSlider() {
     //Registrar el evento click del btnPrev
 
     $btnPrev.addEventListener("click", (e) => {
-      console.log({
-        target: e.target,
-        contador,
-      });
+      contador = contador - 1;
+      renderSlide(contador);
     });
 
     $btnNext.addEventListener("click", (e) => {});
@@ -37,6 +35,8 @@ export default function artSlider() {
     // El setInterval se ejecutará cada 3000 milisegundos - tiempoEspera
     setInterval(() => {
       contador++;
+
+      renderSlide(contador);
       //Actual elemento dot "activo"
       $dots[contador - 1]?.classList.remove("active");
       // Siguiente elemento dot
@@ -60,9 +60,9 @@ export default function artSlider() {
       }
     }, tiempoEspera);
 
-      function renderSlide(contador) {
-        $pista.style.transition = `transform ${tiempoTransicion}ms`;
-        $pista.style.transform = `translateX(-${100 * contador}%)`;
-      }
+    function renderSlide(contador) {
+      $pista.style.transition = `transform ${tiempoTransicion}ms`;
+      $pista.style.transform = `translateX(-${100 * contador}%)`;
+    }
   });
 }
