@@ -76,4 +76,25 @@
       }
     }
   }
+
+  .artSlider01__arrow {
+    position: absolute;
+    width: 45px;
+    height: 45px;
+    top: 50%;
+    border-radius: 50%;
+    font-size: 1.5rem;
+    border: none;
+    transition: background 100ms ease-in;
+    &--prev {
+      left: 3px;
+    }
+    &--next {
+      left: 93%;
+    }
+    &:hover {
+      cursor: pointer;
+      background: #690fd6;
+    }
+  }
 }

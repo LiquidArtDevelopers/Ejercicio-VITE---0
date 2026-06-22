@@ -5,12 +5,25 @@ export default function artSlider() {
     const $pista = $el.querySelector(".artSlider01__pista");
     const $dots = $el.querySelectorAll(".artSlider01__track__dot");
     const $slides = $pista.querySelectorAll(".artSlider01__slide");
-    // Comprobar que nuestra pista y los slider existan dentro del DOM
-    if (!$pista || $slides.length === 0) return;
-
+    const $btnPrev = $el.querySelector(".artSlider01__arrow--prev");
+    const $btnNext = $el.querySelector(".artSlider01__arrow--next");
     // contador guarda en que slide estamos.
     // Empieza en 0 porque la primera slide es la posicion inicial.
     let contador = 0;
+
+    //Registrar el evento click del btnPrev
+
+    $btnPrev.addEventListener("click", (e) => {
+      console.log({
+        target: e.target,
+        contador,
+      });
+    });
+
+    $btnNext.addEventListener("click", (e) => {});
+
+    // Comprobar que nuestra pista y los slider existan dentro del DOM
+    if (!$pista || $slides.length === 0) return;
 
     // Estos tiempos estan separados para que sea facil cambiarlos en clase.
     const tiempoTransicion = 500;
@@ -24,11 +37,8 @@ export default function artSlider() {
     // El setInterval se ejecutará cada 3000 milisegundos - tiempoEspera
     setInterval(() => {
       contador++;
-      $pista.style.transition = `transform ${tiempoTransicion}ms`;
-      $pista.style.transform = `translateX(-${100 * contador}%)`;
       //Actual elemento dot "activo"
       $dots[contador - 1]?.classList.remove("active");
-
       // Siguiente elemento dot
       if ($dots[contador]) {
         // Comprobamos que nuestro dot no contenga la clase "active"
@@ -50,9 +60,9 @@ export default function artSlider() {
       }
     }, tiempoEspera);
 
-    //
-    /* setTimeout(() => {
-      console.log(`Me ejecuto cada ${tiempoEspera}s`);
-    }, tiempoEspera); */
+      function renderSlide(contador) {
+        $pista.style.transition = `transform ${tiempoTransicion}ms`;
+        $pista.style.transform = `translateX(-${100 * contador}%)`;
+      }
   });
 }
