@@ -1,4 +1,5 @@
 @use "./assets/config" as c;
+@use "./assets/animations";
 @use "./assets/art01";
 @use "./assets/art02";
 @use "./assets/art03";
@@ -7,6 +8,8 @@
 @use "./assets/artSlider01";
 @use "./assets/artJs";
 @use "./assets/artAcordeon01";
+@use "./assets/topBotton";
+@use "./assets/nav";
 
 header {
   height: 100dvh;
