@@ -7,30 +7,10 @@ export default function artSlider() {
     const $slides = $pista.querySelectorAll(".artSlider01__slide");
     const $btnPrev = $el.querySelector(".artSlider01__arrow--prev");
     const $btnNext = $el.querySelector(".artSlider01__arrow--next");
-    // contador guarda en que slide estamos.
-    // Empieza en 0 porque la primera slide es la posicion inicial.
-    let contador = 0;
-    let idInterval;
 
-    //Registrar el evento click del btnPrev
-
-    $btnPrev.addEventListener("click", (e) => {
-      autoPlayInterval();
-      contador = contador - 1;
-      renderSlide(contador, $pista, tiempoTransicion);
-      console.log(contador, "prev");
-
-      if (contador === 1) {
-        contador -= 0;
-      }
-      autoPlayInterval();
-    });
-
-    $btnNext.addEventListener("click", (e) => {
-      contador += 1;
-      renderSlide(contador, $pista, tiempoTransicion);
-      console.log(contador, "next");
-    });
+    //Este archivo no contiene lógia pra los btones por eso los eliminamos
+    $btnNext.remove();
+    $btnPrev.remove();
 
     // Comprobar que nuestra pista y los slider existan dentro del DOM
     if (!$pista || $slides.length === 0) return;
@@ -38,26 +18,18 @@ export default function artSlider() {
     // Estos tiempos estan separados para que sea facil cambiarlos en clase.
     const tiempoTransicion = 500;
     const tiempoEspera = 3000;
+    let contador = 0;
 
     $slides.forEach(($slide) => {
       const $copia = $slide.cloneNode(true);
       $pista.appendChild($copia);
     });
-    autoPlayInterval();
-    //Functions
-    function renderSlide() {
+
+    setInterval(() => {
+      //Actualizamos el contador sumando 1
+      contador++;
       $pista.style.transition = `transform ${tiempoTransicion}ms`;
       $pista.style.transform = `translateX(-${100 * contador}%)`;
-    }
-
-    function resetPista() {
-      // Reiniciar la posición del visor para mostrar el primer slide
-      $pista.style.transition = "none";
-      $pista.style.transform = `translateX(0)`;
-      contador = 0;
-    }
-
-    function renderDots() {
       //Actual elemento dot "activo"
       $dots[contador - 1]?.classList.remove("active");
       // Siguiente elemento dot
@@ -69,32 +41,15 @@ export default function artSlider() {
       } else {
         $dots[0].classList.add("active");
       }
-    }
 
-    function autoPlayInterval() {
-      if (!idInterval) {
-        // El setInterval se ejecutará cada 3000 milisegundos - tiempoEspera
-        idInterval = setInterval(() => {
-          //Actualizamos el contador sumando 1
-          contador++;
-          handleInterval();
-        }, tiempoEspera);
-      } else {
-        clearInterval(idInterval);
-        idInterval = undefined;
-        console.log({ contador });
-      }
-    }
-
-    function handleInterval() {
-      renderSlide();
-      renderDots();
-      // Hay que validar el contador se igual al número de la última posición de slides
       if (contador === $slides.length) {
         setTimeout(() => {
-          resetPista($pista, contador);
+          // Reiniciar la posición del visor para mostrar el primer slide
+          $pista.style.transition = "none";
+          $pista.style.transform = `translateX(0)`;
+          contador = 0;
         }, tiempoTransicion);
       }
-    }
+    }, tiempoEspera);
   });
 }
