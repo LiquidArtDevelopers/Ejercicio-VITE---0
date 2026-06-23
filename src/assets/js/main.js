@@ -1,6 +1,6 @@
 import "../scss/main.scss"; //aquí importo el scss
 import "./assets/_artJs.js";
-import artSlider from "./assets/_artSlider02.js";
+import artSlider from "./assets/_artSlider.js";
 //aquí importo todo el código en bruto del otro fichero
 
 // Aquí importo la función que en el otro archivo exporto a través de un alias
