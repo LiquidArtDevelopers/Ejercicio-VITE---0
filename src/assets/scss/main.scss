@@ -10,6 +10,11 @@
 @use "./assets/artAcordeon01";
 @use "./assets/topBotton";
 @use "./assets/nav";
+@use "./assets/darkmode";
+
+body {
+  transition: all 0.5s;
+}
 
 header {
   height: 100dvh;
