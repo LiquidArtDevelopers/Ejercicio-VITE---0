@@ -11,7 +11,7 @@
   </head>
   <body>
  <!-- NavBar -->
-        <nav class="navbar navbar-expand-lg bg-body-tertiary w-100">
+        <nav class="navbar navbar-expand-lg bg-body-tertiary w-100 fixed-top">
           <div class="container-fluid">
             <a class="navbar-brand" href="#">Navbar</a>
             <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
@@ -27,6 +27,15 @@
                 </li>
                  <li class="nav-item">
                   <a class="nav-link" href="#section2">Section 2</a>
+                </li>
+                <li class="nav-item">
+                  <a href="#section3" class="nav-link">Section 3</a>
+                </li>
+                <li class="nav-item">
+                  <a href="#section4" class="nav-link">Section 4</a>
+                </li>
+                <li class="nav-item">
+                  <a href="#section5" class="nav-link">Section 5</a>
                 </li>
                 <li class="nav-item dropdown">
                   <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
@@ -48,12 +57,11 @@
         </nav>
          <!-- NavBar -->
     <header>
-      <div class="nav__container">
         
-        <button class="nav__container--darkModeButton">
+        <button class="header--darkModeButton">
             <i class="fa-solid fa-moon"></i>
         </button>
-      </div>      
+
       <h1>Hola Vite Mundo</h1>
       <a href="#" class="boton">CTA</a>
     </header>
@@ -225,7 +233,7 @@
 
       </section>
 
-      <section>
+      <section id="section3">
         <h2>Servicios</h2>
 
         <!-- Art03 -->
@@ -305,7 +313,7 @@
 
       </section>
             <!-- Slider -->
-      <section>
+      <section id="section4">
         <h2>Carrusel infinito</h2>
 
         <!-- ArtSlider01 -->
@@ -339,7 +347,7 @@
         </article>
       </section>
 
-      <section>
+      <section id="section5">
         <h2 data-lang="encabezado">Encabezado h2</h2>
 
         <article class="artGrid">
@@ -390,6 +398,25 @@
 
       </section>
 
+      <section id="section6">
+        <h2>Boostrap 5</h2>
+        <div class="container">
+          <h3>Grid Boostrap</h3>
+            <div class="row">
+                <div class="col-4">Colum</div>
+                <div class="col-4">Colum</div>
+                <div class="col-4">Colum</div>
+            </div>
+            <div class="row">
+              <div class="col-6">
+                <img class="img-fluid" src="https://picsum.photos/id/1/200/300" >
+              </div>
+              <div class="col-6">
+               <img class="img-thumbnail" src="https://picsum.photos/id/1/200/300" >
+              </div>
+            </div>
+      </div>
+      </section>
     </main>
 
     <script  type="module" src="/src/assets/js/main.js"></script>

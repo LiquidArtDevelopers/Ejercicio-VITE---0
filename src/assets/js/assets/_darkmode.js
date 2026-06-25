@@ -1,7 +1,5 @@
 export default function darkMode() {
-  const $btnDarkMode = document.querySelector(
-    ".nav__container--darkModeButton",
-  );
+  const $btnDarkMode = document.querySelector(".header--darkModeButton");
 
   const $icon = $btnDarkMode.querySelector(".fa-solid");
   const theme = localStorage.getItem("theme") ?? "light";
