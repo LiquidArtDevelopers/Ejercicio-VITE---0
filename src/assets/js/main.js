@@ -12,6 +12,8 @@ import observer from "./assets/_observer.js";
 import navScrollTop from "./assets/_navScrollTop.js";
 import modal from "./assets/_modal.js";
 import Dialog from "./assets/templates/Dialog.js";
+import Dialog2 from "./assets/templates/Dialog2.js";
+import Dialog3 from "./assets/templates/Dialog3.js";
 
 //así llamo a la función que me viene del import, y lo hacemos cuando el dom se ha cargado. esto es un listener que espera a que el dom (html) se cargue.
 
@@ -27,8 +29,17 @@ document.addEventListener("DOMContentLoaded", () => {
   observer();
   navScrollTop();
 
-  const $btnOpenModal = document.querySelector("#openModal1");
-  $btnOpenModal.addEventListener("click", () => {
-    document.body.appendChild(modal(Dialog()));
+  const modals = [
+    { button: "#openModal1", template: Dialog },
+    { button: "#openModal2", template: Dialog2 },
+    { button: "#openModal3", template: Dialog3 },
+  ];
+
+  modals.forEach((item) => {
+    const $btnOpenModal = document.querySelector(item.button);
+
+    $btnOpenModal.addEventListener("click", () => {
+      document.body.appendChild(modal(item.template()));
+    });
   });
 });

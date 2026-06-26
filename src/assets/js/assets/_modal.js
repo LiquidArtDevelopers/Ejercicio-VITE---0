@@ -1,7 +1,6 @@
 export default function modal(template) {
   const $modal = document.createElement("div");
   $modal.id = "modal";
-
   $modal.innerHTML = `
     <div class="modal__container">
         <div class="modal__header">
@@ -15,7 +14,21 @@ export default function modal(template) {
     </div>
   `;
   const $btnClose = $modal.querySelector(".modal--btn-close");
-  //Cerramos la modal cuando se pulse click en el btnClose 
+  const $modalContainer = $modal.querySelector(".modal__container");
+
+  // Cerramos la modal cuando se pulse click en el btnClose
   $btnClose.addEventListener("click", () => $modal.remove());
+
+  // Cerramos la modal si se pulsa fuera del container
+  $modal.addEventListener("click", (e) => {
+    if (e.target.closest("[data-modal-close]")) {
+      $modal.remove();
+      return;
+    }
+
+    if (!$modalContainer.contains(e.target)) {
+      $modal.remove();
+    }
+  });
   return $modal;
 }
