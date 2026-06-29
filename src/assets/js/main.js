@@ -1,40 +1,45 @@
-import "../scss/main.scss"; //aquí importo el scss
+// Importamos el archivo principal de estilos.
+import "../scss/main.scss";
+
+// Importamos modulos que ejecutan codigo o exportan funciones.
 import "./assets/_artJs.js";
 import artSlider from "./assets/_artSlider.js";
-//aquí importo todo el código en bruto del otro fichero
-
-// Aquí importo la función que en el otro archivo exporto a través de un alias
-// Para poder ejecutar el código aquí importado, necesitaré ejecutar o llamar a su función. (que es la función que en el otro fichero exporto)
 import { artAcordeon01 } from "./assets/_artAcordeon01.js";
 import topBottom from "./assets/_topBottom.js";
 import darkMode from "./assets/_darkmode.js";
 import observer from "./assets/_observer.js";
 import navScrollTop from "./assets/_navScrollTop.js";
 import modal from "./assets/_modal.js";
+import validationForm from "./assets/_validationForm.js";
+
+// Importamos las plantillas HTML que se mostraran dentro de las modales.
 import Dialog from "./assets/templates/Dialog.js";
 import Dialog2 from "./assets/templates/Dialog2.js";
 import Dialog3 from "./assets/templates/Dialog3.js";
 
-//así llamo a la función que me viene del import, y lo hacemos cuando el dom se ha cargado. esto es un listener que espera a que el dom (html) se cargue.
-
+// Esperamos a que todo el HTML este cargado antes de buscar elementos del DOM.
 document.addEventListener("DOMContentLoaded", () => {
+  // Activamos los ejercicios interactivos de la pagina.
   artAcordeon01();
   artSlider();
-  //Obtenemos la referencia al main dentro del DOM
+
+  // Creamos el boton para volver arriba y lo agregamos dentro de main.
   const $main = document.querySelector("main");
-  // Agregamos nuestro botón fab dentro del main como nuevo hijo
   $main.appendChild(topBottom());
-  //Llamamos a nuestro js de la función darkMode
+
+  // Activamos funcionalidades generales de la interfaz.
   darkMode();
   observer();
   navScrollTop();
 
+  // Relacionamos cada boton con la plantilla que debe abrir en su modal.
   const modals = [
     { button: "#openModal1", template: Dialog },
     { button: "#openModal2", template: Dialog2 },
     { button: "#openModal3", template: Dialog3 },
   ];
 
+  // Recorremos la lista de modales y asignamos el evento click a cada boton.
   modals.forEach((item) => {
     const $btnOpenModal = document.querySelector(item.button);
 
@@ -42,4 +47,7 @@ document.addEventListener("DOMContentLoaded", () => {
       document.body.appendChild(modal(item.template()));
     });
   });
+
+  // Activamos la validacion del formulario.
+  validationForm();
 });
