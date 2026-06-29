@@ -4,7 +4,7 @@ import artSlider from "./assets/_artSlider.js";
 //aquí importo todo el código en bruto del otro fichero
 
 // Aquí importo la función que en el otro archivo exporto a través de un alias
-// Para poder ejecutar el código aquí importado, necesitaré ejecutar o kllamar a su función. (que es la función que en el otro fichero exporto)
+// Para poder ejecutar el código aquí importado, necesitaré ejecutar o llamar a su función. (que es la función que en el otro fichero exporto)
 import { artAcordeon01 } from "./assets/_artAcordeon01.js";
 import topBottom from "./assets/_topBottom.js";
 import darkMode from "./assets/_darkmode.js";

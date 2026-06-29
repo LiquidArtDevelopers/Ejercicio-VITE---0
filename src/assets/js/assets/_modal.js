@@ -19,16 +19,6 @@ export default function modal(template) {
   // Cerramos la modal cuando se pulse click en el btnClose
   $btnClose.addEventListener("click", () => $modal.remove());
 
-  // Cerramos la modal si se pulsa fuera del container
-  $modal.addEventListener("click", (e) => {
-    if (e.target.closest("[data-modal-close]")) {
-      $modal.remove();
-      return;
-    }
-
-    if (!$modalContainer.contains(e.target)) {
-      $modal.remove();
-    }
-  });
+ 
   return $modal;
 }
