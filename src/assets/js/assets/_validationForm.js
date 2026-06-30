@@ -29,8 +29,7 @@ export default function validationForm() {
       const $error = field.querySelector(".form__input--error");
 
       // Guardamos el valor tal como lo escribe el usuario.
-      // No usamos trim() porque queremos detectar espacios al inicio o al final.
-      const inputValue = input.value;
+      const inputValue = input.value.trim();
 
       // Guardamos el resultado de la validacion en una variable.
       // Esta expresion regular permite espacios solo entre palabras.
